@@ -1,0 +1,199 @@
+/* ==========================================
+   1. GLOBAL STYLES & CORE VARIABLES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #060913; /* Deep space dark blue */
+    color: #00f2fe;           /* Bright neon cyan text */
+    font-family: 'Courier New', Courier, monospace; /* Tech/Terminal code font */
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   2. APP HEADER STYLING
+   ========================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00f2fe;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+}
+
+#score-board {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #101a30;
+    padding: 8px 20px;
+    border: 1px solid #00f2fe;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0, 242, 254, 0.2);
+}
+
+/* ==========================================
+   3. DASHBOARD MAIN LAYOUT (FLEXBOX)
+   ========================================== */
+.dashboard-layout {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows components to wrap cleanly on smaller monitors */
+}
+
+/* Sidebar column to group Metrics and Actions together */
+.control-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 320px;
+}
+
+/* Base style for every monitoring container panel */
+.panel {
+    background-color: #0d1527;
+    border: 1px solid #1e355e;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.panel h2 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #1e355e;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   4. METRICS & BUTTON CONTROLS
+   ========================================== */
+.metric-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: #040710;
+    border-left: 4px solid #00f2fe;
+}
+
+.metric-box .label {
+    color: #8fa0c4;
+}
+
+.metric-box .value {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Interactive control terminal buttons */
+.control-btn {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    color: #00f2fe;
+    border: 1px solid #00f2fe;
+    padding: 14px;
+    margin-bottom: 12px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.control-btn:hover {
+    background-color: #00f2fe;
+    color: #060913;
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+}
+
+/* ==========================================
+   5. DATA CENTER SERVER MATRIX (CSS GRID)
+   ========================================== */
+.rack-panel {
+    flex: 2;
+    min-width: 350px;
+}
+
+#server-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Auto-arranges nodes */
+    gap: 15px;
+    padding-top: 10px;
+}
+
+.server-node {
+    background-color: #122240;
+    border: 1px solid #1e3d73;
+    padding: 25px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Dynamic status classes managed by Javascript later */
+.node-active {
+    border-top: 5px solid #00ff87; /* Green stripe means running well */
+    color: #00ff87;
+}
+
+.node-warning {
+    border-top: 5px solid #ffb300; /* Yellow stripe means minor issue */
+    color: #ffb300;
+}
+
+.node-critical {
+    border-top: 5px solid #ff0844; /* Red stripe means overheating/offline */
+    color: #ff0844;
+}
+
+/* ==========================================
+   6. SCROLLING INCIDENT LOG TERMINAL
+   ========================================== */
+.log-panel {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+#log-stream {
+    height: 280px;
+    background-color: #040710;
+    padding: 12px;
+    overflow-y: auto; /* Adds custom scrollbar if text flows over */
+    border: 1px solid #1e355e;
+    border-radius: 4px;
+}
+
+.log-entry {
+    font-size: 0.85rem;
+    line-items: 1.4;
+    margin-bottom: 10px;
+    color: #a0aec0;
+    word-break: break-word;
+}
+
+/* Color codes for system logs */
+.sys-msg { color: #00f2fe; }
+.alert-msg { color: #ff0844; }
+.success-msg { color: #00ff87; }

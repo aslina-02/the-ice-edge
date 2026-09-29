@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ice Edge - Polar Data Center Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MAIN APP HEADER -->
+    <header>
+        <h1>THE ICE EDGE: POLAR DATA TERMINAL</h1>
+        <div id="score-board">Days Online: <span id="days">0</span></div>
+    </header>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="dashboard-layout">
+        
+        <!-- LEFT COLUMN: STATUS & CONTROLS -->
+        <div class="control-column">
+            
+            <!-- SYSTEM METRICS PANEL -->
+            <section class="panel metrics-panel">
+                <h2>System Metrics</h2>
+                <div class="metric-box">
+                    <span class="label">Operating Budget:</span>
+                    <span id="funds" class="value">$10000</span>
+                </div>
+                <div class="metric-box">
+                    <span class="label">Core Temperature:</span>
+                    <span id="temp" class="value">40</span>°C
+                </div>
+                <div class="metric-box">
+                    <span class="label">Network Stability:</span>
+                    <span id="stability" class="value">100</span>%
+                </div>
+            </section>
+
+            <!-- COMMAND ACTIONS PANEL -->
+            <section class="panel actions-panel">
+                <h2>Command Actions</h2>
+                <button id="btn-vent" class="control-btn">Open Arctic Air Vents (-$200)</button>
+                <button id="btn-satellite" class="control-btn">Reroute Satellite Array (-$500)</button>
+                <button id="btn-solicit" class="control-btn">Apply for Tech Grant (+$1000)</button>
+                <button id="btn-restart" class="control-btn" style="border-color: #ff0844; color: #ff0844;">Reboot Entire Facility</button>
+            </section>
+            
+        </div>
+
+        <!-- CENTER COLUMN: VISUAL SERVER RACKS -->
+        <section class="panel rack-panel">
+            <h2>Data Center Server Matrix</h2>
+            <div id="server-matrix">
+                <div class="server-node node-active" id="node-1">SRV-01</div>
+                <div class="server-node node-active" id="node-2">SRV-02</div>
+                <div class="server-node node-active" id="node-3">SRV-03</div>
+                <div class="server-node node-active" id="node-4">SRV-04</div>
+                <div class="server-node node-active" id="node-5">SRV-05</div>
+                <div class="server-node node-active" id="node-6">SRV-06</div>
+                <div class="server-node node-active" id="node-7">SRV-07</div>
+                <div class="server-node node-active" id="node-8">SRV-08</div>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: RECENT LIVE INCIDENTS -->
+        <section class="panel log-panel">
+            <h2>Live Incident Feed</h2>
+            <div id="log-stream">
+                <p class="log-entry sys-msg">[SYSTEM]: Svalbard telemetry online. Monitoring initialized...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
